@@ -1,10 +1,10 @@
 <?php
 $user = "root";
-$pw = "root";
-$port = 8889;
+$pw = "";
+$port = 3306;
 $host = "localhost";
-$db = "blog";
+$db = "db_coursework";
 
-// this is for connecting with for database 
+// Connect to the database
 $conn = new mysqli($host, $user, $pw, $db, $port);
 ?>

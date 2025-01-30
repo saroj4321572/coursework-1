@@ -60,8 +60,8 @@ if (!$_SESSION['ticket']) {
                   class="form-check-input"
                   type="radio"
                   value="Male"<?php echo ($data['gen']=='Male')?'checked':'' ?>
-                  name="gen "
-                  <?php echo ($sex=='Male')?'checked':'' ?>
+                  name="gen"
+            
                 />
                 <label class="form-check-label">Male</label>
               </div>
