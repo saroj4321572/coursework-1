@@ -1,10 +1,8 @@
 <?php
-require("database.php");
+require('database.php');
+$id = $_GET['eid'];
 
-$id=$_GET['usrid'];
-
-$sql = "DELETE FROM product WHERE id = '".$id."'";
+$sql = "DELETE FROM tbl_add WHERE id = '$id'";
 $conn->query($sql);
-header('Location:index.php');
-
+header('Location:homepage.php');
 ?>
