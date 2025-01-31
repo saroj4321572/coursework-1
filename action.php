@@ -24,7 +24,11 @@ if (isset($_POST['login'])) {
     $hashed_pwd = md5($pwd);
 
 
-    $q = "select * from tbl_register where username='$us' and pass='$hashed_pwd'";
+    if (filter_var($us, FILTER_VALIDATE_EMAIL)) {
+        $q = "SELECT * FROM tbl_register WHERE email='$us' AND pass='$hashed_pwd'";
+    } else {
+        $q = "SELECT * FROM tbl_register WHERE username='$us' AND pass='$hashed_pwd'";
+    }
 
     $result = $conn->query($q);
     $count = $result->num_rows; 
@@ -33,7 +37,9 @@ if (isset($_POST['login'])) {
         $_SESSION['ticket'] = $us;
         header("Location:homepage.php");
     } else {
-        header("Location:index.php");
+        $_SESSION['error_message'] = "Invalid username/email or password!";
+        header("Location: index.php");
+        exit();
     }
 }
 
